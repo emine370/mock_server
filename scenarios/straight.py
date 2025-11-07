@@ -1,7 +1,7 @@
 import math
 import time
 
-def straight_generator(id="rakip_1", start=(38.7640, 30.5235, 120), heading_deg=90, speed=6, rate_hz=5):
+def straight_generator(id="rakip_1", start=(38.7640, 30.5235, 120), heading_deg=90, speed=2, rate_hz=1):
     lat, lon, alt = start
     dt = 1.0 / rate_hz
     curr_yaw = heading_deg

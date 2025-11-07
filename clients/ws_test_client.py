@@ -8,7 +8,7 @@ def connect():
 
     sio.emit("start_multiple", {
     "drones": [
-        {"id": "rakip_1", "scenario": "straight",  "lat": 38.76480, "lon": 30.52390},
+        {"id": "rakip_1", "scenario": "hss_approach",  "lat": 38.76480, "lon": 30.52390},  # HSS'ye doğru gidecek
         {"id": "rakip_2", "scenario": "circular",  "lat": 38.76320, "lon": 30.52460}
     ]
 })

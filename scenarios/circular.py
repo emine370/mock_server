@@ -1,7 +1,7 @@
 import math
 import time
 
-def circular_generator(id="rakip_1", center=(38.7640, 30.5235, 120), radius_m=30, angular_speed_deg_s=20, rate_hz=5):
+def circular_generator(id="rakip_1", center=(38.7640, 30.5235, 120), radius_m=30, angular_speed_deg_s=8, rate_hz=1):
     lat0, lon0, alt = center
     dt = 1.0 / rate_hz
     angle = 0

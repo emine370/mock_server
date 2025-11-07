@@ -1,13 +1,16 @@
 import time, math
 from .base_generator import now
 
-def approach_generator(
+def hss_approach_generator(
     id="rakip_1",
-    start=(38.7655, 30.5230, 120),
-    target=(38.7640, 30.5235, 120),   # Bizim İHA konumu
+    start=(38.76480, 30.52390, 120),  # HSS dışından başla
+    target=(38.76395, 30.52375, 120),  # HSS bölgesinin merkezi
     speed=2,
     rate_hz=1
 ):
+    """
+    HSS bölgesine doğru giden senaryo
+    """
     lat, lon, alt = start
     dt = 1.0 / rate_hz
     meters_lat = 111320
@@ -20,8 +23,10 @@ def approach_generator(
         dist = math.hypot(dlat, dlon)
 
         if dist < 1.0:
-            vx = vy = 0  # hedefe ulaştı → hover
+            # HSS merkezine ulaştı, orada kal
+            vx = vy = 0
         else:
+            # HSS'ye doğru ilerle
             vx = speed * (dlon / dist)
             vy = speed * (dlat / dist)
             lat += (vy / meters_lat) * dt
@@ -40,3 +45,4 @@ def approach_generator(
         }
 
         time.sleep(dt)
+
